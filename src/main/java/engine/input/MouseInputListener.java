@@ -5,6 +5,10 @@ import com.jogamp.newt.event.MouseEvent;
 
 public class MouseInputListener implements MouseListener {
     
+    public MouseInputListener(InputManager receiver) {
+        
+    }
+
     @Override
     public void mouseEntered(MouseEvent m) {
         //send to game
