@@ -1,26 +1,24 @@
 package engine.input;
 
-import java.util.ArrayList;
-
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.KeyListener;
 
 
 public class KeyboardListener implements KeyListener {
 
-    private ArrayList<KeyEvent> lastKeys;
+    InputManager receiver;
     
     public KeyboardListener(InputManager receiver) {
-
+        this.receiver = receiver;
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        
+        receiver.putKey(e);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        //send to game
+        receiver.putKey(e);
     }
 }
