@@ -12,11 +12,11 @@ public class KeyInput extends Listener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        this.handler.handleKeyDown();
+        this.handler.handleKeyDown(e);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        this.handler.handleKeyUp();
+        this.handler.handleKeyUp(e);
     }
 }

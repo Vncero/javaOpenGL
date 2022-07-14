@@ -5,7 +5,6 @@ import com.jogamp.newt.event.MouseEvent;
 
 abstract class Handler {
     //these methods are abstract to force implementation
-    abstract Handler();
     abstract void handleClick(MouseEvent m);
     abstract void handleKeyDown(KeyEvent k);
     abstract void handleKeyUp(KeyEvent k);
