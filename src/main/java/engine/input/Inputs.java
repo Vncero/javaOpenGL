@@ -1,53 +1,67 @@
 package engine.input;
 
-import com.jogamp.newt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.MouseEvent;
 
-public class MouseInputListener implements MouseListener {
+public class Inputs implements MouseListener, KeyListener{
     
-    InputManager receiver;
-
-    public MouseInputListener(InputManager receiver) {
-        this.receiver = receiver;
+    public Inputs() {
+        
     }
 
+    //mouse
     @Override
     public void mouseEntered(MouseEvent m) {
-        //send to game
+        
     }
 
     @Override
     public void mousePressed(MouseEvent m) {
-        //send to game
+        
     }
     
     @Override
     public void mouseClicked(MouseEvent m) {
-        //send to game
+        
     }
 
     @Override
     public void mouseDragged(MouseEvent m) {
-        //send to game
+        
     }
 
     @Override
     public void mouseMoved(MouseEvent m) {
-        //send to game
+        
     }
 
     @Override
     public void mouseWheelMoved(MouseEvent m) {
-        //send to game
+        
     }
 
     @Override
     public void mouseReleased(MouseEvent m) {
-        //send to game
+        
     }
     
     @Override
     public void mouseExited(MouseEvent m) {
-        //send to game
+        
+    }
+
+    //keys
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
     }
 }

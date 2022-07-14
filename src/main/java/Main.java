@@ -5,8 +5,8 @@ import engine.Window;
 public class Main {
 
     public static void main(String[] args) {
-        GLWindow window = Window.createWindow();
-        Window.defaultWindowSetup(window);
+        Window window = new Window();
+        window.setup(() -> System.exit(0), 1080, 720);
         GameLoop gameLoop = new GameLoop();
         gameLoop.start();
     }
