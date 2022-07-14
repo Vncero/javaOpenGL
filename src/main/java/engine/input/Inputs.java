@@ -1,13 +1,11 @@
 package engine.input;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import com.jogamp.newt.event.KeyEvent;
+import com.jogamp.newt.event.KeyListener;
 import com.jogamp.newt.event.MouseEvent;
+import com.jogamp.newt.event.MouseListener;
 
-public class Inputs implements MouseListener, KeyListener{
+public class Inputs implements MouseListener, KeyListener {
     
     public Inputs() {
         
