@@ -5,10 +5,10 @@ import com.jogamp.newt.event.KeyListener;
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
 
-public class Inputs implements MouseListener, KeyListener {
+public class Inputs extends Listener implements MouseListener, KeyListener {
     
-    public Inputs() {
-        
+    public Inputs(Handler handler) {
+        super(handler);
     }
 
     //mouse

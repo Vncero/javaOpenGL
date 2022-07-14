@@ -3,20 +3,20 @@ package engine.input;
 import com.jogamp.newt.event.MouseListener;
 import com.jogamp.newt.event.MouseEvent;
 
-public class MouseInput implements MouseListener {
+public class MouseInput extends Listener implements MouseListener {
 
-    public MouseInput() {
-        
+    public MouseInput(Handler handler) {
+        super(handler);
     }
 
     @Override
     public void mouseEntered(MouseEvent m) {
-        
+        this.handler.handleMouseEntry();
     }
 
     @Override
     public void mousePressed(MouseEvent m) {
-        
+                
     }
     
     @Override
@@ -46,6 +46,6 @@ public class MouseInput implements MouseListener {
     
     @Override
     public void mouseExited(MouseEvent m) {
-
+        this.handler.handleMouseExit();
     }
 }

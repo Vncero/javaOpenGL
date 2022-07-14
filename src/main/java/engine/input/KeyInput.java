@@ -4,19 +4,19 @@ import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.KeyListener;
 
 
-public class KeyInput implements KeyListener {
+public class KeyInput extends Listener implements KeyListener {
     
-    public KeyInput() {
-        
+    public KeyInput(Handler handler) {
+        super(handler);
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        this.handler.handleKeyDown();
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        this.handler.handleKeyUp();
     }
 }
