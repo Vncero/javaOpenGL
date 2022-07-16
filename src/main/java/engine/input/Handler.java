@@ -5,12 +5,12 @@ import com.jogamp.newt.event.MouseEvent;
 
 //effectively another layer of abstraction
 //considering removal in the future
-abstract class Handler {
+public abstract class Handler {
     //these methods are abstract to force implementation
-    abstract void handleClick(MouseEvent m);
+    protected abstract void handleClick(MouseEvent m);
 
-    abstract void handleKeyDown(KeyEvent k);
-    abstract void handleKeyUp(KeyEvent k);
+    protected abstract void handleKeyDown(KeyEvent k);
+    protected abstract void handleKeyUp(KeyEvent k);
 
     //these methods may not be as common, so they can be optionally overridden
     public void handleMouseEntry(MouseEvent m) {}

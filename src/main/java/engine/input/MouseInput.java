@@ -2,12 +2,13 @@ package engine.input;
 
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
+import engine.graphics.Window;
 
-//this looks clean because of `Handler.java`, which is also fairly clean
 public class MouseInput extends Listener implements MouseListener {
 
     public MouseInput(Window window, Handler handler) {
         super(handler);
+        window.addListeners(this, null);
     }
 
     @Override

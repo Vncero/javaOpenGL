@@ -1,4 +1,4 @@
-package engine;
+package game;
 
 public class GameLoop extends Thread {
     /*desired fps: 60fps

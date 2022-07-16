@@ -5,10 +5,13 @@ import com.jogamp.newt.event.KeyListener;
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
 
+import engine.graphics.Window;
+
 public class Inputs extends Listener implements MouseListener, KeyListener {
     
     public Inputs(Window window, Handler handler) {
         super(handler);
+        window.addListeners(this, this);
     }
 
     //mouse
@@ -55,7 +58,7 @@ public class Inputs extends Listener implements MouseListener, KeyListener {
     //keys
     @Override
     public void keyPressed(KeyEvent e) {
-        this.handleKeyDown(e);
+        this.handler.handleKeyDown(e);
     }
 
     @Override
