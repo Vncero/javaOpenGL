@@ -6,7 +6,7 @@ import com.jogamp.newt.event.KeyListener;
 
 public class KeyInput extends Listener implements KeyListener {
     
-    public KeyInput(Handler handler) {
+    public KeyInput(Window window, Handler handler) {
         super(handler);
     }
 
