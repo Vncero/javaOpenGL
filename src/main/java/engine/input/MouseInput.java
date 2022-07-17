@@ -6,9 +6,8 @@ import engine.graphics.Window;
 
 public class MouseInput extends Listener implements MouseListener {
 
-    public MouseInput(Window window, Handler handler) {
-        super(handler);
-        window.addListeners(this, null);
+    public static void add(Window window) {
+        window.addListeners(new MouseInput(), null);
     }
 
     @Override

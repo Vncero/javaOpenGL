@@ -1,4 +1,4 @@
-package engine.graphics;
+package game;
 
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;

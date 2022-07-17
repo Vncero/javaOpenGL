@@ -9,9 +9,9 @@ import engine.graphics.Window;
 
 public class Inputs extends Listener implements MouseListener, KeyListener {
     
-    public Inputs(Window window, Handler handler) {
-        super(handler);
-        window.addListeners(this, this);
+    public static void add(Window window) {
+        Inputs inputs = new Inputs();
+        window.addListeners(inputs, inputs);
     }
 
     //mouse

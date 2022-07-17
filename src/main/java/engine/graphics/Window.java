@@ -16,6 +16,7 @@ public class Window {
     public Window setup(Runnable destroyNotify, int width, int height) {
         this.window.setWindowDestroyNotifyAction(destroyNotify);
         this.window.setSize(width, height);
+        this.window.setVisible(true);
         return this;
     }
 

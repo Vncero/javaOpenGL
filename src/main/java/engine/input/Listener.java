@@ -1,9 +1,8 @@
 package engine.input;
 
-class Listener {
-    protected Handler handler;
-
-    public Listener(Handler handler) {
-        this.handler = handler;
+public class Listener {
+    protected static Handler handler;
+    public static void setHandler(Handler handler) {
+        Listener.handler = handler;
     }
 }

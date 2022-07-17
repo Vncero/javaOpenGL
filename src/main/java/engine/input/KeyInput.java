@@ -6,10 +6,9 @@ import com.jogamp.newt.event.KeyListener;
 import engine.graphics.Window;
 
 public class KeyInput extends Listener implements KeyListener {
-    
-    public KeyInput(Window window, Handler handler) {
-        super(handler);
-        window.addListeners(null, this);
+
+    public static void add(Window window) {
+        window.addListeners(null, new KeyInput());
     }
 
     @Override
