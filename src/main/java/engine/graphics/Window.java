@@ -7,21 +7,32 @@ import com.jogamp.newt.event.MouseListener;
 import com.jogamp.newt.event.KeyListener;
 
 public class Window {
-    GLWindow window;
+    private GLWindow glWindow;
 
-    public Window() {
-        window = GLWindow.create(new GLCapabilities(GLProfile.get("GL4")));
+    public Window(GLProfile profile) {
+        glWindow = GLWindow.create(new GLCapabilities(profile));
     }
 
-    public Window setup(Runnable destroyNotify, int width, int height) {
-        this.window.setWindowDestroyNotifyAction(destroyNotify);
-        this.window.setSize(width, height);
-        this.window.setVisible(true);
+    public Window setup(Runnable destroyNotify, int width, int height, boolean resizable, boolean visibleOnSetup) {
+        this.glWindow.setWindowDestroyNotifyAction(destroyNotify);
+        this.glWindow.setSize(width, height);
+        this.glWindow.setResizable(resizable);
+        this.glWindow.setVisible(visibleOnSetup);
         return this;
     }
 
-    public void addListeners(MouseListener mouse, KeyListener keys) {
-        if (mouse != null) this.window.addMouseListener(mouse);
-        if (keys != null) this.window.addKeyListener(keys);
+    public Window addEventListener(GLEventListener eventListener) {
+        if (eventListener != null) this.glWindow.addGLEventListener(eventListener);
+        return this;
+    }
+
+    public GLWindow getGlWindow() {
+        return this.glWindow;
+    }
+
+    //this method is meant only for use internally
+    public void addInputListeners(MouseListener mouse, KeyListener keys) {
+        if (mouse != null) this.glWindow.addMouseListener(mouse);
+        if (keys != null) this.glWindow.addKeyListener(keys);
     }
 }

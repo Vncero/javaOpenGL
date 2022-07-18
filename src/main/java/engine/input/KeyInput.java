@@ -8,7 +8,7 @@ import engine.graphics.Window;
 public class KeyInput extends Listener implements KeyListener {
 
     public static void add(Window window) {
-        window.addListeners(null, new KeyInput());
+        window.addInputListeners(null, new KeyInput());
     }
 
     @Override

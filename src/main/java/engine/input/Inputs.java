@@ -11,7 +11,7 @@ public class Inputs extends Listener implements MouseListener, KeyListener {
     
     public static void add(Window window) {
         Inputs inputs = new Inputs();
-        window.addListeners(inputs, inputs);
+        window.addInputListeners(inputs, inputs);
     }
 
     //mouse

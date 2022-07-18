@@ -7,7 +7,7 @@ import engine.graphics.Window;
 public class MouseInput extends Listener implements MouseListener {
 
     public static void add(Window window) {
-        window.addListeners(new MouseInput(), null);
+        window.addInputListeners(new MouseInput(), null);
     }
 
     @Override
