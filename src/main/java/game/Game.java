@@ -70,12 +70,16 @@ public class Game {
             //implement handling here
             @Override
             protected void handleClick(MouseEvent m) {
+                System.out.println("Last click at (" + InputMap.lastClickCoords.get('x') + ", " + InputMap.lastClickCoords.get('y') + ")");
                 System.out.println("Click at (" + m.getX() + ", " + m.getY() + ")");
+                InputMap.lastClickCoords.replace('x', m.getX());
+                InputMap.lastClickCoords.replace('y', m.getY());
             }
 
             @Override
             protected void handleKeyDown(KeyEvent k) {
                 System.out.println("Key pressed: " + k.getKeyChar());
+                InputMap.lastKeySymbol = k.getKeySymbol();
             }
 
             @Override
