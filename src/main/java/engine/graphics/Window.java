@@ -13,16 +13,16 @@ public class Window {
         glWindow = GLWindow.create(new GLCapabilities(profile));
     }
 
-    public Window setup(Runnable destroyNotify, int width, int height, boolean resizable, boolean visibleOnSetup) {
+    public Window setup(Runnable destroyNotify, int width, int height, boolean resizable) {
         this.glWindow.setWindowDestroyNotifyAction(destroyNotify);
         this.glWindow.setSize(width, height);
         this.glWindow.setResizable(resizable);
-        this.glWindow.setVisible(visibleOnSetup);
         return this;
     }
 
-    public Window addEventListener(GLEventListener eventListener) {
+    public Window addEventListener(boolean visibleOnSetup, GLEventListener eventListener) {
         if (eventListener != null) this.glWindow.addGLEventListener(eventListener);
+        this.glWindow.setVisible(visibleOnSetup);
         return this;
     }
 

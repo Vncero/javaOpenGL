@@ -3,13 +3,9 @@ package game;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.MouseEvent;
 
-import com.jogamp.opengl.GL4;
-import com.jogamp.opengl.GLAutoDrawable;
-import com.jogamp.opengl.GLEventListener;
-import com.jogamp.opengl.GLProfile;
-
+import com.jogamp.opengl.*;
 import com.jogamp.opengl.util.FPSAnimator;
-import engine.graphics.Graphics;
+
 import engine.graphics.Window;
 
 import engine.input.Listener;
@@ -21,32 +17,51 @@ public class Game {
     public void init() {
         GLProfile.initSingleton(); //GLProfile.get() implicitly calls this, keep it if you want
         Window window = new Window(GLProfile.get(GLProfile.GL4))
-                .setup(() -> System.exit(0), 1080, 720, true, true)
-                .addEventListener(new GLEventListener() {
-                    public static GL4 gl = null;
+                .setup(() -> System.exit(0), 1080, 720, true)
+                .addEventListener(true, new GLEventListener() {
+                    //window needs to have a GLEventListener before being shown
                     @Override
                     public void init(GLAutoDrawable drawable) {
-                        gl = drawable.getGL().getGL4();
-                        //should be reusable for all events
+                        GL2 gl2 = drawable.getGL().getGL2();
+                        GL4 gl4 = drawable.getGL().getGL4();
 
-                        Graphics.gl = gl.getGL2();
-                        //prevents the need to pass in gl on every Graphics method
+                        //boilerplate block
+                        //modify if you know what you're doing (or don't need DebugGL)
+                        drawable.setGL(
+                                drawable.getGL().isGL4bc()
+                                ? new DebugGL4bc(drawable.getGL().getGL4bc())
+                                : drawable.getGL().isGL4()
+                                ? new DebugGL4(drawable.getGL().getGL4())
+                                : drawable.getGL().isGL3bc()
+                                ? new DebugGL3bc(drawable.getGL().getGL3bc())
+                                : drawable.getGL().isGL3()
+                                ? new DebugGL3(drawable.getGL().getGL3())
+                                : drawable.getGL().isGL2()
+                                ? new DebugGL2(drawable.getGL().getGL2())
+                                : drawable.getGL()
+                        );
 
                         System.out.println("It worked");
                     }
 
                     @Override
                     public void dispose(GLAutoDrawable drawable) {
+                        GL2 gl2 = drawable.getGL().getGL2();
+                        GL4 gl4 = drawable.getGL().getGL4();
 
                     }
 
                     @Override
                     public void display(GLAutoDrawable drawable) {
+                        GL2 gl2 = drawable.getGL().getGL2();
+                        GL4 gl4 = drawable.getGL().getGL4();
 
                     }
 
                     @Override
                     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
+                        GL2 gl2 = drawable.getGL().getGL2();
+                        GL4 gl4 = drawable.getGL().getGL4();
 
                     }
                 });
@@ -80,7 +95,7 @@ public class Game {
         FPSAnimator animator = new FPSAnimator(window.getGlWindow(), 60);
         animator.start();
 
-        GameLoop gameLoop = new GameLoop(60d);
-        gameLoop.start();
+//        GameLoop gameLoop = new GameLoop(60d);
+//        gameLoop.start();
     }
 }

@@ -1,10 +1,15 @@
 package game;
 
+import com.jogamp.opengl.GLAutoDrawable;
+import engine.graphics.Window;
+
 public class GameLoop extends Thread {
+    private Window window;
     private double maxNsPerFrame;
 
-    public GameLoop(double fps) {
-         maxNsPerFrame = 1000000000 / fps;
+    public GameLoop(Window window, double fps) {
+        this.window = window;
+        maxNsPerFrame = 1000000000 / fps;
     }
     
     @Override
@@ -13,6 +18,7 @@ public class GameLoop extends Thread {
         //update
 
         //render
+        this.window.getGlWindow().display();
 
         double timeTaken = System.nanoTime() - start;
 
