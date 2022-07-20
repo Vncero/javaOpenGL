@@ -1,5 +1,7 @@
-apply plugin: "java"
-apply plugin: "application"
+plugins {
+    id 'java'
+    id 'application'
+}
 
 repositories {
 //    jcenter()
@@ -33,4 +35,16 @@ dependencies {
     runtimeOnly "org.jogamp.jogl:jogl-all:2.3.2:natives-solaris-i586"
     runtimeOnly "org.jogamp.jogl:jogl-all:2.3.2:natives-windows-amd64"
     runtimeOnly "org.jogamp.jogl:jogl-all:2.3.2:natives-windows-i586"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+    }
+}
+
+application {
+    mainClass = 'src.main.java.Main'
 }

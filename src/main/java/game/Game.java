@@ -4,12 +4,12 @@ import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.MouseEvent;
 
 import com.jogamp.opengl.*;
-import com.jogamp.opengl.util.FPSAnimator;
 
 import engine.graphics.Window;
 
 import engine.input.Listener;
 import engine.input.Handler;
+import engine.input.InputMap;
 import engine.input.KeyInput;
 import engine.input.MouseInput;
 
@@ -48,14 +48,12 @@ public class Game {
                     public void dispose(GLAutoDrawable drawable) {
                         GL2 gl2 = drawable.getGL().getGL2();
                         GL4 gl4 = drawable.getGL().getGL4();
-
                     }
 
                     @Override
                     public void display(GLAutoDrawable drawable) {
                         GL2 gl2 = drawable.getGL().getGL2();
                         GL4 gl4 = drawable.getGL().getGL4();
-
                     }
 
                     @Override
@@ -72,14 +70,16 @@ public class Game {
             protected void handleClick(MouseEvent m) {
                 System.out.println("Last click at (" + InputMap.lastClickCoords.get('x') + ", " + InputMap.lastClickCoords.get('y') + ")");
                 System.out.println("Click at (" + m.getX() + ", " + m.getY() + ")");
-                InputMap.lastClickCoords.replace('x', m.getX());
-                InputMap.lastClickCoords.replace('y', m.getY());
+
+                InputMap.lastClickCoords.replace('x', (double) m.getX());
+                InputMap.lastClickCoords.replace('y', (double) m.getY());
             }
 
             @Override
             protected void handleKeyDown(KeyEvent k) {
                 System.out.println("Key pressed: " + k.getKeyChar());
-                InputMap.lastKeySymbol = k.getKeySymbol();
+                
+                InputMap.lastKeySymbol = (char) k.getKeySymbol();
             }
 
             @Override
@@ -96,10 +96,7 @@ public class Game {
         //use Window#getGlWindow() to customize the window further
         window.getGlWindow().setTitle("Vncero's Game");
 
-        FPSAnimator animator = new FPSAnimator(window.getGlWindow(), 60);
-        animator.start();
-
-//        GameLoop gameLoop = new GameLoop(60d);
-//        gameLoop.start();
+       GameLoop gameLoop = new GameLoop(window, 60d);
+       gameLoop.start();
     }
 }

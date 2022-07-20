@@ -1,9 +1,13 @@
 package engine.graphics;
 
 import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GLRunnable;
 
 public class GraphicsGL2 {
+
+    public static void setDrawColor(float r, float g, float b, float a) {
+        
+    }
+
     public static void fillRect(GL2 gl2, float x, float y, float width, float height) {
 //        gl.glTranslatef(x, y, 0);
 //        gl.glRotatef(rotation, 0, 0, 1);

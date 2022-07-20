@@ -17,52 +17,52 @@ public class Inputs extends Listener implements MouseListener, KeyListener {
     //mouse
     @Override
     public void mouseEntered(MouseEvent m) {
-        this.handler.handleMouseEntry(m);
+        Listener.handler.handleMouseEntry(m);
     }
 
     @Override
     public void mousePressed(MouseEvent m) {
-        this.handler.handleMousePress(m);
+        Listener.handler.handleMousePress(m);
     }
     
     @Override
     public void mouseClicked(MouseEvent m) {
-        this.handler.handleClick(m);
+        Listener.handler.handleClick(m);
     }
 
     @Override
     public void mouseDragged(MouseEvent m) {
-        this.handler.handleMouseDrag(m);
+        Listener.handler.handleMouseDrag(m);
     }
 
     @Override
     public void mouseMoved(MouseEvent m) {
-        this.handler.handleMouseMove(m);
+        Listener.handler.handleMouseMove(m);
     }
 
     @Override
     public void mouseWheelMoved(MouseEvent m) {
-        this.handler.handleMouseWheelMove(m);
+        Listener.handler.handleMouseWheelMove(m);
     }
 
     @Override
     public void mouseReleased(MouseEvent m) {
-        this.handler.handleMouseRelease(m);
+        Listener.handler.handleMouseRelease(m);
     }
     
     @Override
     public void mouseExited(MouseEvent m) {
-        this.handler.handleMouseExit(m);
+        Listener.handler.handleMouseExit(m);
     }
 
     //keys
     @Override
     public void keyPressed(KeyEvent e) {
-        this.handler.handleKeyDown(e);
+        Listener.handler.handleKeyDown(e);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        this.handler.handleKeyUp(e);
+        Listener.handler.handleKeyUp(e);
     }
 }
