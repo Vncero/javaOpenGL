@@ -1,5 +1,7 @@
-apply plugin: "java"
-apply plugin: "application"
+plugins {
+    id 'java'
+    id 'application'
+}
 
 repositories {
 //    jcenter()
@@ -9,6 +11,7 @@ repositories {
 dependencies {
     implementation "org.jogamp.gluegen:gluegen-rt:2.3.2"
     implementation "org.jogamp.jogl:jogl-all:2.3.2"
+    implementation 'org.jetbrains:annotations:20.1.0'
 
     runtimeOnly "org.jogamp.gluegen:gluegen-rt:2.3.2:natives-android-aarch64"
     runtimeOnly "org.jogamp.gluegen:gluegen-rt:2.3.2:natives-android-armv6"

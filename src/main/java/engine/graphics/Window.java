@@ -13,10 +13,11 @@ public class Window {
         glWindow = GLWindow.create(new GLCapabilities(profile));
     }
 
-    public Window setup(Runnable destroyNotify, int width, int height, boolean resizable) {
+    public Window setup(Runnable destroyNotify, int width, int height, boolean resizable, boolean requestFocus) {
         this.glWindow.setWindowDestroyNotifyAction(destroyNotify);
         this.glWindow.setSize(width, height);
         this.glWindow.setResizable(resizable);
+        if (requestFocus) this.glWindow.requestFocus();
         return this;
     }
 

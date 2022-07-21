@@ -16,13 +16,13 @@ import engine.input.MouseInput;
 public class Game {
     public void init() {
         GLProfile.initSingleton(); //GLProfile.get() implicitly calls this, keep it if you want
-        Window window = new Window(GLProfile.get(GLProfile.GL4))
-                .setup(() -> System.exit(0), 1080, 720, true)
+        Window window = new Window(GLProfile.get(GLProfile.GL4)) //change the profile for (gl4 | gl2)
+                .setup(() -> System.exit(0), 1080, 720, true, true)
                 .addEventListener(true, new GLEventListener() {
                     //window needs to have a GLEventListener before being shown
                     @Override
                     public void init(GLAutoDrawable drawable) {
-                        GL2 gl2 = drawable.getGL().getGL2();
+//                        GL2 gl2 = drawable.getGL().getGL2();
                         GL4 gl4 = drawable.getGL().getGL4();
 
                         //boilerplate block
@@ -46,21 +46,21 @@ public class Game {
 
                     @Override
                     public void dispose(GLAutoDrawable drawable) {
-                        GL2 gl2 = drawable.getGL().getGL2();
+//                        GL2 gl2 = drawable.getGL().getGL2();
                         GL4 gl4 = drawable.getGL().getGL4();
 
                     }
 
                     @Override
                     public void display(GLAutoDrawable drawable) {
-                        GL2 gl2 = drawable.getGL().getGL2();
+//                        GL2 gl2 = drawable.getGL().getGL2();
                         GL4 gl4 = drawable.getGL().getGL4();
 
                     }
 
                     @Override
                     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-                        GL2 gl2 = drawable.getGL().getGL2();
+//                        GL2 gl2 = drawable.getGL().getGL2();
                         GL4 gl4 = drawable.getGL().getGL4();
 
                     }
