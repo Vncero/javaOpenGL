@@ -5,6 +5,7 @@ import com.jogamp.newt.event.MouseEvent;
 
 import com.jogamp.opengl.*;
 
+import com.jogamp.opengl.util.FPSAnimator;
 import engine.graphics.Window;
 
 import engine.input.Listener;
@@ -17,7 +18,7 @@ public class Game {
     public void init() {
         GLProfile.initSingleton(); //GLProfile.get() implicitly calls this, keep it if you want
         Window window = new Window(GLProfile.get(GLProfile.GL4)) //change the profile for (gl4 | gl2)
-                .setup(() -> System.exit(0), 1080, 720, true, true)
+                .setup(() -> System.exit(0), 1080, 720, true, false)
                 .addEventListener(true, new GLEventListener() {
                     //window needs to have a GLEventListener before being shown
                     @Override
@@ -96,7 +97,10 @@ public class Game {
         //use Window#getGlWindow() to customize the window further
         window.getGlWindow().setTitle("Vncero's Game");
 
-       GameLoop gameLoop = new GameLoop(window, 60d);
-       gameLoop.start();
+        FPSAnimator animator = new FPSAnimator(window.getGlWindow(), 60);
+        animator.start();
+
+        GameLoop gameLoop = new GameLoop(window, 60d);
+        gameLoop.start();
     }
 }
