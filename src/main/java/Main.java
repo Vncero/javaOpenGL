@@ -1,4 +1,3 @@
-
 import game.Game;
 
 public class Main {

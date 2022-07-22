@@ -8,21 +8,16 @@ repositories {
     mavenCentral()
 }
 
-//sourceSets {
-//    main {
-//        java {
-//            srcDir 'src/main/java'
-//        }
-//    }
-//}
-//
-//jar {
-//    manifest {
-//        attributes 'Main-Class': 'src.main.java.Main'
-//    }
-//}
-//
-//mainClassName = 'src.main.java.Main'
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+            // srcDir 'src/main/java'
+        }
+    }
+}
+
+mainClassName = 'src.main.java.Main'
 
 dependencies {
     implementation "org.jogamp.gluegen:gluegen-rt:2.3.2"
