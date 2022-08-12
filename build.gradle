@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    // id 'java'
     id 'application'
 }
 
@@ -17,7 +17,11 @@ sourceSets {
     }
 }
 
-mainClassName = 'src.main.java.Main'
+application {
+    mainClass = 'src.main.java.Main'
+}
+
+// mainClassName = 'main.java.Main'
 
 dependencies {
     implementation "org.jogamp.gluegen:gluegen-rt:2.3.2"
